@@ -12,15 +12,15 @@ const services = [
     serviceId: "web-development",
     title: "Desarrollo Web",
     description: "Sitios web modernos, responsivos y optimizados. Desde landing pages hasta aplicaciones web complejas.",
-    features: ["Hosting incluido", "Certificado SSL", "Correos Corporativos", "SEO Basico"],
-    price: 150000,
+    features: ["Hosting incluido", "SSL", "Correos Corporativos", "SEO Basico"],
+    price: 100000,
   },
   {
     icon: Brain,
     serviceId: "ai-integration",
     title: "Integracion de IA",
     description: "Implementamos soluciones de inteligencia artificial para automatizar y optimizar tus procesos de negocio.",
-    features: ["Chatbots", "Analisis de Datos", "Automatizaciones", "Modelos Personalizados"],
+    features: ["Chatbots", "Analisis de Datos", "Automatizaciones", "Modelos Personalizados", "API Integrations"],
     price: 500000,
   },
   {
@@ -28,8 +28,8 @@ const services = [
     serviceId: "database-management",
     title: "Bases de Datos",
     description: "Diseno, migracion y optimizacion de bases de datos. Aseguramos la integridad de tu informacion.",
-    features: ["SQL / NoSQL", "Migraciones", "Backups Automaticos", "Optimizacion"],
-    price: 350000,
+    features: ["SQL / NoSQL", "Migraciones de Datos", "Respaldos Automaticos", "Optimizacion", "Analisis de Rendimiento"],
+    price: 70000,
   },
 ]
 
