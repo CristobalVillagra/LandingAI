@@ -1,44 +1,66 @@
-"use client";
+"use client"
 
-import { useState, useEffect } from "react";
-import { CheckCircle, Loader2, Send } from "lucide-react";
-import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
-import { Label } from "@/components/ui/label";
-import { Textarea } from "@/components/ui/textarea";
+import { useState, useRef, useEffect } from "react"
+import { Send, CheckCircle, Loader2 } from "lucide-react"
+import { Button } from "@/components/ui/button"
+import { Input } from "@/components/ui/input"
+import { Label } from "@/components/ui/label"
+import { Textarea } from "@/components/ui/textarea"
 import {
   Select,
   SelectContent,
   SelectItem,
   SelectTrigger,
   SelectValue,
-} from "@/components/ui/select";
+} from "@/components/ui/select"
 
-// Datos para los selects
-const services = ["Desarrollo Web", "Automatización", "SaaS", "Consultoría"];
-const budgets = ["Menos de $500", "$500 - $1000", "$1000 - $5000", "Más de $5000"];
+const services = [
+  "Desarrollo Web",
+  "Integracion de IA",
+  "Bases de Datos",
+  "Apps Moviles",
+  "Consultoria IT",
+  "Otro",
+]
 
-const FORMSPARK_ACTION_URL = `https://submit-form.com/${process.env.NEXT_PUBLIC_FORMSPARK_ID}`;
+const budgets = [
+  "Menos de $500.000",
+  "$500.000 - $1.000.000",
+  "$1.000.000 - $2.500.000",
+  "$2.500.000 - $5.000.000",
+  "Mas de $5.000.000",
+]
 
+const FORMSPARK_ACTION_URL = "https://submit-form.com/GHlDRTTck"
 export default function ContactForm() {
-  
-  // Estados
-  const [isSubmitting, setIsSubmitting] = useState(false);
-  const [isSubmitted, setIsSubmitted] = useState(false);
-  const [isVisible, setIsVisible] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false)
+  const [isSubmitted, setIsSubmitted] = useState(false)
+  const [isVisible, setIsVisible] = useState(false)
+  const sectionRef = useRef<HTMLElement>(null)
 
-  // Efecto para la animación de entrada
   useEffect(() => {
-    setIsVisible(true);
-  }, []);
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsVisible(true)
+        }
+      },
+      { threshold: 0.1 }
+    )
 
-  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-    console.log("Enviando a:", FORMSPARK_ACTION_URL);
-    setIsSubmitting(true);
+    if (sectionRef.current) {
+      observer.observe(sectionRef.current)
+    }
 
-    const formData = new FormData(e.currentTarget);
-    const data = Object.fromEntries(formData);
+    return () => observer.disconnect()
+  }, [])
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault()
+    setIsSubmitting(true)
+    
+    const formData = new FormData(e.currentTarget as HTMLFormElement)
+    const data = Object.fromEntries(formData)
 
     try {
       const response = await fetch(FORMSPARK_ACTION_URL, {
@@ -48,44 +70,60 @@ export default function ContactForm() {
           Accept: "application/json",
         },
         body: JSON.stringify(data),
-      });
+      })
 
       if (response.ok) {
-        setIsSubmitted(true);
+        setIsSubmitted(true)
       }
     } catch (error) {
-      console.error("Error al enviar:", error);
-      alert("Hubo un error al enviar el mensaje. Inténtalo de nuevo.");
+      console.error("Error al enviar:", error)
+      alert("Hubo un error al enviar el mensaje. Inténtalo de nuevo.")
     } finally {
-      setIsSubmitting(false);
+      setIsSubmitting(false)
     }
-  };
+  }
 
   return (
-    <div className="w-full max-w-4xl mx-auto py-12 px-4">
-      <div
-        className={`bg-card border border-border rounded-2xl p-6 sm:p-8 lg:p-10 transition-all duration-700 delay-200 ${
-          isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
-        }`}
-      >
-        {isSubmitted ? (
-          <div className="text-center py-12 animate-in fade-in zoom-in duration-500">
-            <div className="w-16 h-16 rounded-full bg-primary/10 flex items-center justify-center mx-auto mb-6">
-              <CheckCircle className="h-8 w-8 text-primary" />
-            </div>
-            <h3 className="text-2xl font-bold mb-2 text-foreground">Solicitud Enviada</h3>
-            <p className="text-muted-foreground">
-              Gracias por contactarnos. Te responderemos pronto.
+    <section ref={sectionRef} id="cotizar" className="py-24 lg:py-32 relative">
+      <div className="container mx-auto px-4 sm:px-6 relative z-10">
+        <div className="max-w-3xl mx-auto">
+          {/* Header */}
+          <div className={`text-center mb-12 transition-all duration-700 ${
+            isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
+          }`}>
+            <span className="inline-block px-4 py-1.5 rounded-full bg-primary/10 text-primary text-sm font-medium mb-4">
+              Cotiza tu Proyecto
+            </span>
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-4 tracking-tight text-balance">
+              Solicita una cotizacion gratuita
+            </h2>
+            <p className="text-muted-foreground max-w-xl mx-auto text-lg leading-relaxed">
+              Cuentanos sobre tu proyecto y te enviaremos una propuesta personalizada en menos de 24 horas.
             </p>
-            <Button 
-              variant="outline" 
-              className="mt-6" 
-              onClick={() => setIsSubmitted(false)}
-            >
-              Enviar otro mensaje
-            </Button>
           </div>
-        ) : (
+
+          {/* Form Card */}
+          <div className={`bg-card border border-border rounded-2xl p-6 sm:p-8 lg:p-10 transition-all duration-700 delay-200 ${
+            isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
+          }`}>
+            {isSubmitted ? (
+              <div className="text-center py-12 animate-scale-in">
+                <div className="w-16 h-16 rounded-full bg-primary/10 flex items-center justify-center mx-auto mb-6">
+                  <CheckCircle className="h-8 w-8 text-primary" />
+                </div>
+                <h3 className="text-2xl font-bold mb-2 text-foreground">Solicitud Enviada</h3>
+                <p className="text-muted-foreground">
+                  Gracias por contactarnos. Te responderemos pronto.
+                </p>
+                <Button 
+                  variant="outline" 
+                  className="mt-6" 
+                  onClick={() => setIsSubmitted(false)}
+                >
+                  Enviar otro mensaje
+                </Button>
+              </div>
+            ) : (
           <form onSubmit={handleSubmit} className="space-y-6">
             <div className="grid sm:grid-cols-2 gap-6">
               <div className="space-y-2">
@@ -147,13 +185,13 @@ export default function ContactForm() {
                   <SelectTrigger className="bg-background border-border focus:border-primary h-12">
                     <SelectValue placeholder="Selecciona un servicio" />
                   </SelectTrigger>
-                  <SelectContent>
-                    {services.map((service) => (
-                      <SelectItem key={service} value={service}>
-                        {service}
-                      </SelectItem>
-                    ))}
-                  </SelectContent>
+                      <SelectContent>
+                        {services.map((service) => (
+                          <SelectItem key={service} value={service.toLowerCase().replace(/ /g, "-")}>
+                            {service}
+                          </SelectItem>
+                        ))}
+                      </SelectContent>
                 </Select>
               </div>
               <div className="space-y-2">
@@ -162,13 +200,13 @@ export default function ContactForm() {
                   <SelectTrigger className="bg-background border-border focus:border-primary h-12">
                     <SelectValue placeholder="Selecciona un rango" />
                   </SelectTrigger>
-                  <SelectContent>
-                    {budgets.map((budget) => (
-                      <SelectItem key={budget} value={budget}>
-                        {budget}
-                      </SelectItem>
-                    ))}
-                  </SelectContent>
+                      <SelectContent>
+                        {budgets.map((budget) => (
+                          <SelectItem key={budget} value={budget.toLowerCase().replace(/ /g, "-")}>
+                            {budget}
+                          </SelectItem>
+                        ))}
+                      </SelectContent>
                 </Select>
               </div>
             </div>
@@ -180,7 +218,7 @@ export default function ContactForm() {
               <Textarea
                 id="message"
                 name="message"
-                placeholder="Cuéntanos los detalles..."
+                placeholder="Cuentanos los detalles de tu proyecto, objetivos, plazos y cualquier informacion relevante..."
                 rows={5}
                 required
                 className="bg-background border-border focus:border-primary resize-none transition-colors duration-300"
@@ -207,11 +245,13 @@ export default function ContactForm() {
             </Button>
 
             <p className="text-center text-sm text-muted-foreground">
-              Al enviar aceptas nuestra política de privacidad.
+              Al enviar aceptas nuestra politica de privacidad.
             </p>
           </form>
         )}
       </div>
-    </div>
-  );
+        </div>
+      </div>
+    </section>
+  )
 }

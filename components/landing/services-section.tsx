@@ -152,20 +152,7 @@ export function ServicesSection() {
           </div>
         </div>
       </section>
-
-      {/* SECCIÓN DE CONTACTO (Aquí conectamos el formulario) */}
-      <section id="cotizar" className="py-20 bg-muted/30">
-        <div className="container mx-auto px-4">
-          <div className="text-center max-w-2xl mx-auto mb-12">
-            <h2 className="text-3xl font-bold mb-4">Contáctanos</h2>
-            <p className="text-muted-foreground">
-              Cuéntanos sobre tu proyecto y te ayudaremos a hacerlo realidad.
-            </p>
-          </div>
-          
-          <ContactForm /> 
-        </div>
-      </section>
+    
     </>
   )
 }
