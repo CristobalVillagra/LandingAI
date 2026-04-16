@@ -1,0 +1,6 @@
+
+x
+
+[submodule "LandingAI"]
+	path = LandingAI
+	url = https://github.com/usuario/repo.git
