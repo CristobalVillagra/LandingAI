@@ -5,13 +5,6 @@ import Link from "next/link"
 import { ArrowDown, ArrowRight, Zap } from "lucide-react"
 import { Button } from "@/components/ui/button"
 
-const stats = [
-  { value: "+50", label: "Proyectos Exitosos" },
-  { value: "+30", label: "Clientes Activos" },
-  { value: "99%", label: "Satisfaccion" },
-  { value: "24/7", label: "Soporte" },
-]
-
 export function HeroBanner() {
   return (
     <section
@@ -35,19 +28,20 @@ export function HeroBanner() {
           {/* Badge */}
           <div className="animate-fade-down animate-on-load inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 border border-primary/20 mb-8">
             <Zap className="h-4 w-4 text-primary" />
-            <span className="text-sm text-primary font-medium">Soluciones Tecnologicas para tu Negocio</span>
+            <span className="text-sm text-primary font-medium">
+              Paginas web simples para negocios reales
+            </span>
           </div>
 
           {/* Main Heading */}
           <h1 className="animate-fade-up animate-on-load delay-100 text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-bold mb-6 leading-tight tracking-tight text-balance">
-            Transformamos tu negocio con{" "}
-            <span className="text-primary">tecnologia inteligente</span>
+            Creamos tu pagina web y automatizamos tu negocio{" "}
+            <span className="text-primary">sin que tengas que hacer nada</span>
           </h1>
 
           {/* Description */}
           <p className="animate-fade-up animate-on-load delay-200 text-lg sm:text-xl text-muted-foreground mb-10 max-w-2xl mx-auto leading-relaxed text-pretty">
-            Desde desarrollo web hasta integraciones avanzadas. 
-            Cotiza tus servicios de informatica y lleva tu empresa al siguiente nivel.
+            Usamos la informacion de tu negocio y la dejamos lista para que te escriban clientes.
           </p>
 
           {/* CTAs */}
@@ -58,7 +52,7 @@ export function HeroBanner() {
               asChild
             >
               <Link href="#cotizar">
-                Cotizar Servicios
+                Diseño web gratis
                 <ArrowRight className="ml-2 h-5 w-5 transition-transform duration-300 group-hover:translate-x-1" />
               </Link>
             </Button>
@@ -69,38 +63,14 @@ export function HeroBanner() {
               asChild
             >
               <Link href="#servicios">
-                Ver Servicios
+                Todos los servicios
               </Link>
             </Button>
           </div>
 
-          {/* Stats */}
-          <div className="animate-fade-up animate-on-load delay-400 grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-12">
-            {stats.map((stat, i) => (
-              <div 
-                key={i} 
-                className="text-center group"
-                style={{ animationDelay: `${400 + i * 100}ms` }}
-              >
-                <div className="text-3xl sm:text-4xl font-bold text-primary mb-1 transition-transform duration-300 group-hover:scale-110">
-                  {stat.value}
-                </div>
-                <div className="text-sm text-muted-foreground">{stat.label}</div>
-              </div>
-            ))}
-          </div>
+          {/* (Se eliminaron estadísticas por credibilidad) */}
         </div>
 
-        {/* Scroll indicator */}
-        <div className="absolute bottom-8 left-1/2 -translate-x-1/2 animate-fade-in animate-on-load delay-600">
-          <Link
-            href="#servicios"
-            className="flex flex-col items-center gap-2 text-muted-foreground hover:text-primary transition-colors duration-300 group"
-          >
-            <span className="text-sm font-medium">Explorar</span>
-            <ArrowDown className="h-5 w-5 animate-bounce" />
-          </Link>
-        </div>
       </div>
     </section>
   )

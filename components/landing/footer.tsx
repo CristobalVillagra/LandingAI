@@ -2,16 +2,13 @@
 
 import Image from "next/image"
 import Link from "next/link"
-import { Mail, Phone, MapPin, Linkedin, Instagram, Send } from "lucide-react"
-import { Input } from "@/components/ui/input"
-import { Button } from "@/components/ui/button"
+import { Mail, Phone, MapPin, Linkedin, Instagram } from "lucide-react"
 
 const footerLinks = {
   servicios: [
-    { label: "Desarrollo Web", href: "#servicios" },
-    { label: "Integracion de IA", href: "#servicios" },
-    { label: "Bases de Datos", href: "#servicios" },
-    { label: "Apps Moviles", href: "#servicios" },
+    { label: "Pagina Web", href: "#servicios" },
+    { label: "Automatizacion con IA", href: "#servicios" },
+    { label: "Sistemas (Reservas, pagos, ventas)", href: "#servicios" },
   ],
   empresa: [
     { label: "Nosotros", href: "#nosotros" },
@@ -40,7 +37,7 @@ export function Footer() {
             <Link href="#inicio" className="inline-block mb-4">
               <div className="relative h-10 w-40">
                 <Image
-                  src="/banner-logo.png"
+                  src="/banner-logo-rounded-v2.png"
                   alt="AIntegration"
                   fill
                   className="object-contain"
@@ -48,7 +45,7 @@ export function Footer() {
               </div>
             </Link>
             <p className="text-muted-foreground text-sm mb-6 leading-relaxed max-w-xs">
-              Transformamos empresas con soluciones tecnologicas inteligentes e innovadoras.
+              Creamos tu pagina web y hacemos que te lleguen clientes sin que tengas que hacer nada.
             </p>
             <div className="flex gap-2">
               {socialLinks.map((social) => (
@@ -104,11 +101,11 @@ export function Footer() {
             <ul className="space-y-3">
               <li>
                 <a 
-                  href="mailto:info@aintegration.com" 
+                  href="mailto:aintegrationchile@gmail.com" 
                   className="flex items-center gap-2 text-sm text-muted-foreground hover:text-primary transition-colors duration-300"
                 >
                   <Mail className="h-4 w-4 text-primary shrink-0" />
-                  info@aintegration.com
+                  aintegrationchile@gmail.com
                 </a>
               </li>
               <li>
@@ -125,29 +122,6 @@ export function Footer() {
                 Santiago, Chile
               </li>
             </ul>
-          </div>
-
-          {/* Newsletter */}
-          <div className="col-span-2 md:col-span-4 lg:col-span-1">
-            <h4 className="font-semibold text-foreground mb-4">Newsletter</h4>
-            <p className="text-sm text-muted-foreground mb-4">
-              Recibe noticias y ofertas exclusivas.
-            </p>
-            <form className="flex gap-2">
-              <Input
-                type="email"
-                placeholder="tu@email.com"
-                className="bg-background border-border focus:border-primary h-10 text-sm"
-              />
-              <Button 
-                type="submit" 
-                size="icon"
-                className="bg-primary text-primary-foreground hover:bg-primary/90 h-10 w-10 shrink-0"
-              >
-                <Send className="h-4 w-4" />
-                <span className="sr-only">Suscribirse</span>
-              </Button>
-            </form>
           </div>
         </div>
 

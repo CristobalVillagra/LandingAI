@@ -1,38 +1,53 @@
 "use client"
 
 import { useEffect, useRef, useState } from "react"
-import { Code, Brain, Database, CheckCircle2, ArrowRight } from "lucide-react"
+import { Code, Brain, Settings2, CheckCircle2, ArrowRight } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import Link from "next/link"
-import ContactForm from "@/components/contact-form";
 
 const services = [
   {
     icon: Code,
     serviceId: "web-development",
     title: "Desarrollo Web",
-    description: "Sitios web modernos, responsivos y optimizados. Desde landing pages hasta aplicaciones web complejas.",
-    features: ["Hosting incluido", "SSL", "Correos Corporativos", "SEO Basico"],
-    price: 100000,
+    description: "Creamos tu pagina web lista para que tus clientes te encuentren y te contacten.",
+    features: [
+      "Pagina lista para usar (Hosting y dominio incluido)",
+      "Seguridad incluida (SSL)",
+      "Botones de redes sociales",
+      "Aparece en resultados de busqueda (Google)",
+    ],
+    price: 94990,
   },
   {
     icon: Brain,
     serviceId: "ai-integration",
     title: "Integracion de IA",
-    description: "Implementamos soluciones de inteligencia artificial para automatizar y optimizar tus procesos de negocio.",
-    features: ["Chatbots", "Analisis de Datos", "Automatizaciones", "Modelos Personalizados", "API Integrations"],
-    price: 500000,
+    description: "Automatizamos tareas de tu negocio para que ahorres tiempo y respondas mas rapido.",
+    features: [
+      "Respuestas automaticas a clientes (Chatbots)",
+      "Seguimiento de clientes (Analisis de datos)",
+      "Procesos que funcionan solos (Automatizaciones)",
+      "Soluciones segun tu negocio (Modelos personalizados)",
+      "Conexion entre herramientas (Integraciones API)",
+    ],
+    price: 129990,
   },
   {
-    icon: Database,
-    serviceId: "database-management",
-    title: "Bases de Datos",
-    description: "Diseno, migracion y optimizacion de bases de datos. Aseguramos la integridad de tu informacion.",
-    features: ["SQL / NoSQL", "Migraciones de Datos", "Respaldos Automaticos", "Optimizacion", "Analisis de Rendimiento"],
-    price: 70000,
+    icon: Settings2,
+    serviceId: "systems",
+    title: "Implementacion de Sistemas",
+    description: "Implementamos sistemas clave para tu negocio como reservas, pagos o ventas online.",
+    features: [
+      "Sistema de reservas online (Booking)",
+      "Pagos en linea (Pasarela de pago)",
+      "Carrito de compras (E-commerce)",
+      "Integracion con tu negocio (Sistemas personalizados)",
+      "Funcionamiento automatico y eficiente",
+    ],
+    price: 114990,
   },
 ]
-
 
 function ServiceCard({ service, index }: { service: typeof services[0], index: number }) {
   const [isVisible, setIsVisible] = useState(false)
@@ -62,7 +77,6 @@ function ServiceCard({ service, index }: { service: typeof services[0], index: n
         isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
       }`}
     >
-      {/* Icon */}
       <div className="w-14 h-14 rounded-xl bg-primary/10 flex items-center justify-center mb-6 transition-all duration-300 group-hover:bg-primary/20 group-hover:scale-110">
         <service.icon className="h-7 w-7 text-primary" />
       </div>
@@ -72,7 +86,6 @@ function ServiceCard({ service, index }: { service: typeof services[0], index: n
         {service.description}
       </p>
 
-      {/* Features */}
       <ul className="space-y-3 mb-8 flex-grow">
         {service.features.map((feature) => (
           <li key={feature} className="flex items-center gap-3 text-sm text-foreground/80">
@@ -82,7 +95,6 @@ function ServiceCard({ service, index }: { service: typeof services[0], index: n
         ))}
       </ul>
 
-      {/* Price and CTA */}
       <div className="pt-6 border-t border-border mt-auto">
         <div className="flex items-baseline gap-1 mb-4">
           <span className="text-xs text-muted-foreground uppercase tracking-wide">Desde</span>
@@ -96,7 +108,7 @@ function ServiceCard({ service, index }: { service: typeof services[0], index: n
           className="w-full bg-primary text-primary-foreground hover:bg-primary/90 group/btn transition-all duration-300"
         >
           <Link href="#cotizar">
-            Solicitar
+            Quiero mi web
             <ArrowRight className="ml-2 h-4 w-4 transition-transform duration-300 group-hover/btn:translate-x-1" />
           </Link>
         </Button>
@@ -127,32 +139,28 @@ export function ServicesSection() {
   }, [])
 
   return (
-    <>
-      {/* SECCIÓN DE SERVICIOS */}
-      <section ref={sectionRef} id="servicios" className="py-24 lg:py-32 relative">
-        <div className="container mx-auto px-4 sm:px-6">
-          <div className={`text-center max-w-3xl mx-auto mb-16 transition-all duration-700 ${
-            isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
-          }`}>
-            <span className="inline-block px-4 py-1.5 rounded-full bg-primary/10 text-primary text-sm font-medium mb-4">
-              Servicios
-            </span>
-            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-6 tracking-tight text-balance">
-              Soluciones tecnológicas para el mundo real
-            </h2>
-            <p className="text-muted-foreground text-lg leading-relaxed">
-              Potenciamos tu presencia digital con herramientas modernas y soporte especializado.
-            </p>
-          </div>
-
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
-            {services.map((service, index) => (
-              <ServiceCard key={service.serviceId} service={service} index={index} />
-            ))}
-          </div>
+    <section ref={sectionRef} id="servicios" className="py-24 lg:py-32 relative">
+      <div className="container mx-auto px-4 sm:px-6">
+        <div className={`text-center max-w-3xl mx-auto mb-16 transition-all duration-700 ${
+          isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
+        }`}>
+          <span className="inline-block px-4 py-1.5 rounded-full bg-primary/10 text-primary text-sm font-medium mb-4">
+            Servicios
+          </span>
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-6 tracking-tight text-balance">
+            Lo que tu negocio necesita para empezar online
+          </h2>
+          <p className="text-muted-foreground text-lg leading-relaxed">
+            Creamos tu pagina web y dejamos funcionando todo para que recibas clientes sin complicarte.
+          </p>
         </div>
-      </section>
-    
-    </>
+
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
+          {services.map((service, index) => (
+            <ServiceCard key={service.serviceId} service={service} index={index} />
+          ))}
+        </div>
+      </div>
+    </section>
   )
 }

@@ -5,29 +5,29 @@ import Image from "next/image"
 import { CheckCircle, Users, Target, Award } from "lucide-react"
 
 const features = [
-  "Equipo de expertos certificados",
-  "Metodologias agiles de trabajo",
-  "Soporte tecnico continuo",
-  "Proyectos a medida",
-  "Tecnologias modernas",
-  "Precios competitivos",
+  "Te guiamos en todo el proceso",
+  "No necesitas conocimientos tecnicos",
+  "Te ayudamos despues de entregar tu web",
+  "Soluciones adaptadas a tu negocio",
+  "Usamos herramientas simples y efectivas",
+  "Precios accesibles",
 ]
 
 const highlights = [
   {
     icon: Users,
-    title: "Equipo Experto",
-    description: "Profesionales con anos de experiencia en el sector tecnologico.",
+    title: "Te lo hacemos facil",
+    description: "Nos encargamos de todo para que no tengas que aprender nada tecnico.",
   },
   {
     icon: Target,
-    title: "Enfoque Personalizado",
-    description: "Cada proyecto es unico y merece una solucion a medida.",
+    title: "Hecho para tu negocio",
+    description: "Tu web se adapta a lo que tu negocio necesita.",
   },
   {
     icon: Award,
-    title: "Calidad Garantizada",
-    description: "Comprometidos con la excelencia en cada entrega.",
+    title: "Resultados reales",
+    description: "Buscamos que consigas clientes, no solo que tengas una web.",
   },
 ]
 
@@ -67,12 +67,10 @@ export function AboutSection() {
               Sobre Nosotros
             </span>
             <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-6 tracking-tight text-balance">
-              Impulsamos la transformacion digital de tu negocio
+              Ayudamos a negocios como el tuyo a tener su pagina web y empezar a recibir clientes
             </h2>
             <p className="text-muted-foreground text-lg mb-8 leading-relaxed">
-              En AIntegration combinamos creatividad, tecnologia y experiencia 
-              para ofrecer soluciones informaticas que realmente marcan la diferencia. 
-              Nuestro objetivo es ser tu socio estrategico en el camino hacia la innovacion.
+              Sabemos que no todos manejan temas tecnicos, por eso nos encargamos de todo por ti.
             </p>
 
             <div className="grid grid-cols-2 gap-4">

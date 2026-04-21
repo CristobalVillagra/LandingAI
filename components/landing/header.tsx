@@ -42,7 +42,7 @@ export function Header() {
           >
             <div className="relative h-10 w-40 lg:h-12 lg:w-48">
               <Image
-                src="/banner-logo.png"
+                src="/banner-logo-rounded-v2.png"
                 alt="AIntegration"
                 fill
                 priority
@@ -68,7 +68,7 @@ export function Header() {
               size="sm"
               className="ml-4 bg-primary text-primary-foreground hover:bg-primary/90 transition-all duration-300"
             >
-              <Link href="#contacto">Contacto</Link>
+              <Link href="#contacto">Hablar por WhatsApp</Link>
             </Button>
           </nav>
 
@@ -117,7 +117,7 @@ export function Header() {
                 className="w-full bg-primary text-primary-foreground hover:bg-primary/90"
                 onClick={() => setIsMobileMenuOpen(false)}
               >
-                <Link href="#contacto">Contacto</Link>
+                <Link href="#contacto">Hablar por WhatsApp</Link>
               </Button>
             </div>
           </nav>

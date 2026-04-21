@@ -40,7 +40,7 @@ export function Footer() {
             <Link href="#inicio" className="inline-block mb-4">
               <div className="relative h-10 w-40">
                 <Image
-                  src="/banner-logo.png"
+                  src="/banner-logo-rounded-v2.png"
                   alt="AIntegration"
                   fill
                   className="object-contain"

@@ -42,7 +42,7 @@ export function Header() {
           >
             <div className="relative h-10 w-40 lg:h-12 lg:w-48">
               <Image
-                src="/banner-logo.png"
+                src="/banner-logo-rounded-v2.png"
                 alt="AIntegration"
                 fill
                 priority
