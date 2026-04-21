@@ -123,11 +123,8 @@ export function InstagramFeed() {
               Instagram en vivo
             </span>
             <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-balance mb-4">
-              Mira ideas, ejemplos y avances publicados en @aintegration.cl
+              Busca mas informacion de nuestros servicios publicados en @aintegration.cl
             </h2>
-            <p className="text-muted-foreground text-lg leading-relaxed">
-              Este carrusel se alimenta desde tu cuenta para que la landing siempre muestre contenido reciente.
-            </p>
           </div>
 
           <a
