@@ -108,7 +108,7 @@ export function AboutSection() {
             {highlights.map((item, index) => (
               <div
                 key={item.title}
-                className={`flex gap-4 p-6 rounded-xl bg-slate-900/50 border border-slate-800 hover:border-indigo-500/50 transition-all duration-500 hover-lift ${
+                className={`flex gap-4 p-6 rounded-xl bg-card border border-border hover:border-primary/30 transition-all duration-500 hover-lift ${
                   isVisible ? "opacity-100 translate-x-0" : "opacity-0 translate-x-8"
                 }`}
                 style={{ transitionDelay: `${300 + index * 150}ms` }}

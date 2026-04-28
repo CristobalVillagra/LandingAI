@@ -3,8 +3,7 @@ import { HeroBanner } from "@/components/landing/hero-banner"
 import { TechCarousel } from "@/components/landing/tech-carousel"
 import { ServicesSection } from "@/components/landing/services-section"
 import { AboutSection } from "@/components/landing/about-section"
-import { BookingSection } from "@/components/landing/booking-section"
-import { QuoteForm } from "@/components/landing/quote-form"
+import { InstagramFeed } from "@/components/landing/instagram-feed"
 import { Footer } from "@/components/landing/footer"
 
 export default function Home() {
@@ -16,8 +15,7 @@ export default function Home() {
         <TechCarousel />
         <ServicesSection />
         <AboutSection />
-        <BookingSection />
-        <QuoteForm />
+        <InstagramFeed />
       </main>
       <Footer />
     </div>
