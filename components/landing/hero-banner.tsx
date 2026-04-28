@@ -63,7 +63,7 @@ export function HeroBanner() {
               asChild
             >
               <Link href="#servicios">
-                Todos los servicios
+                Ver servicios
               </Link>
             </Button>
           </div>
