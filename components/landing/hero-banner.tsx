@@ -51,8 +51,8 @@ export function HeroBanner() {
               className="bg-primary text-primary-foreground hover:bg-primary/90 px-8 h-14 text-base font-semibold group transition-all duration-300 hover:shadow-lg hover:shadow-primary/20"
               asChild
             >
-              <Link href="#cotizar">
-                Diseño web gratis
+              <Link href="#agendar">
+                Agendar llamada
                 <ArrowRight className="ml-2 h-5 w-5 transition-transform duration-300 group-hover:translate-x-1" />
               </Link>
             </Button>
@@ -62,8 +62,8 @@ export function HeroBanner() {
               className="border-border hover:border-primary hover:text-primary px-8 h-14 text-base font-semibold transition-all duration-300"
               asChild
             >
-              <Link href="#servicios">
-                Todos los servicios
+              <Link href="#cotizar">
+                Diseño web gratis
               </Link>
             </Button>
           </div>

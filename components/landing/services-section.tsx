@@ -73,7 +73,7 @@ function ServiceCard({ service, index }: { service: typeof services[0], index: n
   return (
     <div
       ref={cardRef}
-      className={`relative group bg-card border border-border rounded-2xl p-8 transition-all duration-500 hover:border-primary/30 hover-lift flex flex-col h-full ${
+      className={`relative group bg-slate-900/50 border border-slate-800 rounded-2xl p-8 transition-all duration-500 hover:border-indigo-500/50 hover-lift flex flex-col h-full overflow-hidden ${
         isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
       }`}
     >
