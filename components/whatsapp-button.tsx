@@ -5,7 +5,7 @@ import { MessageCircle } from "lucide-react"
 
 export function WhatsAppButton() {
   const [isVisible, setIsVisible] = useState(false)
-  const phoneNumber = "56939022969"
+  const phoneNumber = "56967442530"
   const whatsappUrl = `https://wa.me/${phoneNumber}`
 
   useEffect(() => {

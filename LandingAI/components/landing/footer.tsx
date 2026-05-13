@@ -117,7 +117,7 @@ export function Footer() {
                   className="flex items-center gap-2 text-sm text-muted-foreground hover:text-primary transition-colors duration-300"
                 >
                   <Phone className="h-4 w-4 text-primary shrink-0" />
-                  +56 9 3902 2969
+                  Ejecutivo de ventas: +56 9 3902 2969
                 </a>
               </li>
               <li className="flex items-start gap-2 text-sm text-muted-foreground">
