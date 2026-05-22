@@ -10,6 +10,15 @@ type InstagramMediaItem = {
   timestamp?: string
 }
 
+type InstagramPost = {
+  id: string
+  caption: string
+  mediaType: string
+  imageUrl: string
+  permalink: string
+  timestamp: string
+}
+
 const ACCESS_TOKEN = process.env.INSTAGRAM_ACCESS_TOKEN
 const FEED_LIMIT = Number(process.env.INSTAGRAM_FEED_LIMIT ?? 8)
 
@@ -63,7 +72,7 @@ export async function GET() {
             permalink: item.permalink || "",
             timestamp: item.timestamp || "",
           }))
-          .filter((item) => item.imageUrl && item.permalink)
+          .filter((item: InstagramPost) => item.imageUrl && item.permalink)
       : []
 
     return NextResponse.json(
